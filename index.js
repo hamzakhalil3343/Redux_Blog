@@ -25,7 +25,8 @@ const reducer = (state = initialState, action) => {
   }
   const store=createStore(reducer);
   console.log('Inetial state is '+store.getState().numofCake);
-  store.subscribe(()=>console.log('updated state is '+store.getState().numofCake));
+  const unsubscribe= store.subscribe(()=>console.log('updated state is '+store.getState().numofCake));
   store.dispatch(buyCake());
   store.dispatch(buyCake());
   store.dispatch(buyCake());
+  unsubscribe();
