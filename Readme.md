@@ -59,6 +59,8 @@ A reducer which caries out the state transitions
               Handle UnSubscribe the Listeners 
               
 
-              
+###   Middleware
+
+                It is a suggested way to extend redux with custom functionality .          
 
           

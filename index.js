@@ -1,4 +1,8 @@
 const redux=require('redux');
+const reduxLogger=require('redux-logger');
+
+const applyMiddleware=redux.applyMiddleware;
+const logger=reduxLogger.createLogger();
 const createStore=redux.createStore;
 const combinereducers=redux.combineReducers;
 const BUY_CAKE='BUY_CAKE'
@@ -51,9 +55,9 @@ const CakeReducer = (state = cakeState, action) => {
     cake:CakeReducer,
     iceCream:IceCreamreducer
   })
-  const store=createStore(rootReducer);
+  const store=createStore(rootReducer,applyMiddleware(logger));
   console.log('Inetial state is '+store.getState());
-  const unsubscribe= store.subscribe(()=>console.log('updated state is '+store.getState()));
+  const unsubscribe= store.subscribe(()=>{});
   store.dispatch(buyCake());
   store.dispatch(buyCake());
   store.dispatch(buyCake());
